@@ -14,6 +14,7 @@ def reading_json(path_to_file: str) -> dict:
 
 data = reading_json(PATH_TO_JSON)
 
+
 def create_object_from_json(data_from_json: dict):
     """Функция создания объектов класса на основе данных из json файла"""
     product_objects = []

@@ -5,17 +5,23 @@ def test_category_init(data_for_categories):
             data_for_categories.description
             == "Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником"
     )
-    assert data_for_categories.products == [
+    assert data_for_categories.products_in_list == [
         {"name": '55" QLED 4K', "description": "Фоновая подсветка", "price": 123000.0, "quantity": 7}
     ]
 
 
 def test_categories_counters(data_for_counters_categories):
     """Тест проверяющий правильность работы счётчиков в классе Category"""
-    assert data_for_counters_categories.product_count == 3
+    assert data_for_counters_categories.product_count == 2
     assert data_for_counters_categories.category_count == 1
 
 
-def test_category_property(data_for_products):
-    print(data_for_products.products)
-    # assert data_for_products.products == 'Samsung Galaxy C23 Ultra, 180000.0 руб. Остаток: 5 шт.\n'
+def test_category_products_property(data_for_counters_categories):
+    assert data_for_counters_categories.products == (
+        'Iphone 15, 210000.0 руб. Остаток: 8 шт.\nXiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.\n')
+
+
+def test_category_products_setter(data_for_counters_categories, data_for_products):
+    assert len(data_for_counters_categories.products_in_list) == 2
+    data_for_counters_categories.products = data_for_products
+    assert len(data_for_counters_categories.products_in_list) == 3

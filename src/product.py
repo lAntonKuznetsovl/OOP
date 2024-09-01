@@ -14,8 +14,7 @@ class Product:
 
     @classmethod
     def new_product(cls, product_params: dict):
-        new_product = Product(**product_params)
-        return new_product
+        return cls(**product_params)
 
     @property
     def price(self):
@@ -35,14 +34,3 @@ class Product:
                     break
                 elif answer.lower() == 'n':
                     break
-
-
-# product = Product("55\" QLED 4K",
-#                   "Фоновая подсветка",
-#                   123000.0,
-#                   7)
-
-# print(product.name)
-# print(product.description)
-# print(product.price)
-# print(product.quantity)
