@@ -33,3 +33,13 @@ def data_for_counters_categories():
                 {"name": "Xiaomi Redmi Note 11", "description": "1024GB, Синий", "price": 31000.0, "quantity": 14}),
         ],
     )
+
+
+@pytest.fixture
+def new_product():
+    return {
+        "name": "Samsung Galaxy C23 Ultra",
+        "description": "256GB, Серый цвет, 200MP камера",
+        "price": 180000.0,
+        "quantity": 5
+    }

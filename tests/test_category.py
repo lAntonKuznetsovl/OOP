@@ -21,7 +21,7 @@ def test_category_products_property(data_for_counters_categories):
         'Iphone 15, 210000.0 руб. Остаток: 8 шт.\nXiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.\n')
 
 
-def test_category_products_setter(data_for_counters_categories, data_for_products):
-    assert len(data_for_counters_categories.products_in_list) == 2
-    data_for_counters_categories.products = data_for_products
-    assert len(data_for_counters_categories.products_in_list) == 3
+def test_category_add_product(data_for_categories, new_product):
+    assert len(data_for_categories.products_in_list) == 1
+    data_for_categories.add_product(new_product)
+    assert len(data_for_categories.products_in_list) == 2

@@ -24,11 +24,32 @@ class Category:
             products_str += f'{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n'
         return products_str
 
-    @products.setter
-    def products(self, product: Product):
+    def add_product(self, product: dict):
         self.__products.append(product)
         Category.product_count += 1
 
     @property
     def products_in_list(self):
         return self.__products
+
+
+if __name__ == '__main__':
+    cat = Category("Смартфоны",
+                   "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для " "удобства жизни",
+                   [
+
+                       {"name": "Iphone 15", "description": "512GB, Gray space", "price": 210000.0, "quantity": 8},
+
+                       {"name": "Xiaomi Redmi Note 11", "description": "1024GB, Синий", "price": 31000.0,
+                        "quantity": 14},
+                   ])
+    print(cat.name)
+    print(cat.description)
+    print(cat.products_in_list)
+    print(cat.product_count)
+    cat.add_product({"name": "Samsung Galaxy C23 Ultra",
+                     "description": "256GB, Серый цвет, 200MP камера",
+                     "price": 180000.0,
+                     "quantity": 5})
+    print(cat.products_in_list)
+    print(cat.product_count)
