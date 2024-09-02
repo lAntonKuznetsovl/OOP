@@ -10,6 +10,7 @@ def test_product_init(data_for_products):
 
 
 def test_classmethod_new_product():
+    """Создание нового продукта из словаря"""
     new_product = Product.new_product({
         "name": "Samsung Galaxy C23 Ultra",
         "description": "256GB, Серый цвет, 200MP камера",
@@ -23,6 +24,7 @@ def test_classmethod_new_product():
 
 
 def test_price_setter(capsys, monkeypatch):
+    """Проверка замены цены"""
     new_product = Product.new_product({
         "name": "Samsung Galaxy C23 Ultra",
         "description": "256GB, Серый цвет, 200MP камера",

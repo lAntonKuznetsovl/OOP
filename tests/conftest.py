@@ -37,6 +37,7 @@ def data_for_counters_categories():
 
 @pytest.fixture
 def new_product():
+    """Новый продукт для теста Category - добавление нового продукта в список"""
     return {
         "name": "Samsung Galaxy C23 Ultra",
         "description": "256GB, Серый цвет, 200MP камера",

@@ -17,11 +17,13 @@ def test_categories_counters(data_for_counters_categories):
 
 
 def test_category_products_property(data_for_counters_categories):
+    """Проверка корректности вывода строки"""
     assert data_for_counters_categories.products == (
         'Iphone 15, 210000.0 руб. Остаток: 8 шт.\nXiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.\n')
 
 
 def test_category_add_product(data_for_categories, new_product):
+    """Проверка добавления нового продукта в список"""
     assert len(data_for_categories.products_in_list) == 1
     data_for_categories.add_product(new_product)
     assert len(data_for_categories.products_in_list) == 2
