@@ -27,3 +27,7 @@ def test_category_add_product(data_for_categories, new_product):
     assert len(data_for_categories.products_in_list) == 1
     data_for_categories.add_product(new_product)
     assert len(data_for_categories.products_in_list) == 2
+
+
+def test_category_str(data_for_counters_categories):
+    assert str(data_for_counters_categories) == 'Телевизоры, количество продуктов: 7 шт.'

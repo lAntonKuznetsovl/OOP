@@ -2,11 +2,12 @@ import pytest
 
 from src.category import Category
 from src.product import Product
+from src.product_iteration import ProductIteration
 
 
 @pytest.fixture
-def data_for_products():
-    """Данные для теста класса Product для проверки корректности инициализации"""
+def product1():
+    """Данные для теста класса Product"""
     return Product("Samsung Galaxy C23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
 
 
@@ -44,3 +45,15 @@ def new_product():
         "price": 180000.0,
         "quantity": 5
     }
+
+
+@pytest.fixture
+def product2():
+    """Данные для теста класса Product"""
+    return Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
+
+
+@pytest.fixture
+def product_iterator(data_for_counters_categories):
+    """Данные для теста перебора продуктов"""
+    return ProductIteration(data_for_counters_categories)

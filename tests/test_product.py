@@ -1,12 +1,12 @@
 from src.product import Product
 
 
-def test_product_init(data_for_products):
+def test_product_init(product1):
     """Тест проверяющий корректность инициализации в классе Product"""
-    assert data_for_products.name == "Samsung Galaxy C23 Ultra"
-    assert data_for_products.description == "256GB, Серый цвет, 200MP камера"
-    assert data_for_products.price == 180000.0
-    assert data_for_products.quantity == 5
+    assert product1.name == "Samsung Galaxy C23 Ultra"
+    assert product1.description == "256GB, Серый цвет, 200MP камера"
+    assert product1.price == 180000.0
+    assert product1.quantity == 5
 
 
 def test_classmethod_new_product():
@@ -40,3 +40,11 @@ def test_price_setter(capsys, monkeypatch):
     monkeypatch.setattr('builtins.input', lambda _: "y")
     new_product.price = 100
     assert new_product.price == 100
+
+
+def test_product_str(product1):
+    assert str(product1) == 'Samsung Galaxy C23 Ultra, 180000.0 руб. Остаток: 5 шт.'
+
+
+def test_add_product(product1, product2):
+    assert product1 + product2 == 1334000
