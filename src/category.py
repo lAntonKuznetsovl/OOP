@@ -19,7 +19,7 @@ class Category:
         Category.category_count += 1
 
     def __str__(self):
-        return f'{self.name}, количество продуктов: {cat.counting_total_quantity} шт.'
+        return f'{self.name}, количество продуктов: {self.counting_total_quantity} шт.'
 
     @property
     def products(self):
@@ -63,10 +63,20 @@ class Category:
 #         31000.0,
 #         14)
 #
+#     prod4 = Product("55\" QLED 4K",
+#                     "Фоновая подсветка",
+#                     123000.0,
+#                     7)
+#
 #     cat = Category(
 #         "Смартфоны",
 #         "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для удобства жизни",
 #         [prod1, prod2, prod3])
 #
-#     print(cat.products)
+#     cat2 = Category("Телевизоры",
+#                     "Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником",
+#                     [prod4])
+#
+#     # print(cat.products)
 #     print(cat)
+#     print(cat2)
