@@ -21,9 +21,8 @@ def create_object_from_json(data_from_json: dict):
     categories_objects = []
     for category in data_from_json:
         categories_objects.append(Category(**category))
-        for element in category:
-            for product in element:
-                product_objects.append(Product(**product))
+        for element in category['products']:
+            product_objects.append(Product(**element))
     return categories_objects, product_objects
 
 
