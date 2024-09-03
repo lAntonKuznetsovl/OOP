@@ -10,12 +10,12 @@ class Category:
     category_count = 0
     product_count = 0
 
-    def __init__(self, name, description, products_list):
+    def __init__(self, name, description, products):
         """Инициализация объекта"""
         self.name = name
         self.description = description
-        self.__products = products_list if products_list else []
-        Category.product_count = len(products_list) if products_list else 0
+        self.__products = products if products else []
+        Category.product_count = len(products) if products else 0
         Category.category_count += 1
 
     def __str__(self):
