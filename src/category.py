@@ -19,7 +19,10 @@ class Category:
         Category.category_count += 1
 
     def __str__(self):
-        return f'{self.name}, количество продуктов: {self.counting_total_quantity} шт.'
+        total_quantity = 0
+        for product in self.__products:
+            total_quantity += product.quantity
+        return f'{self.name}, количество продуктов: {total_quantity} шт.'
 
     @property
     def products(self):
@@ -36,14 +39,6 @@ class Category:
     @property
     def products_in_list(self):
         return self.__products
-
-    @property
-    def counting_total_quantity(self):
-        total_quantity = 0
-        for product in self.__products:
-            total_quantity += product.quantity
-        return total_quantity
-
 
 # if __name__ == '__main__':
 #     prod1 = Product("Samsung Galaxy C23 Ultra",
