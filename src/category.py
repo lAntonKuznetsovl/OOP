@@ -26,6 +26,7 @@ class Category:
 
     @property
     def products(self):
+        """Отображение продукта в заданном формате"""
         products_str = ''
         for product in self.__products:
             products_str += f'{str(product)}\n'
