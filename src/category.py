@@ -10,19 +10,23 @@ class Category:
     category_count = 0
     product_count = 0
 
-    def __init__(self, name, description, products_list):
+    def __init__(self, name, description, products):
         """Инициализация объекта"""
         self.name = name
         self.description = description
-        self.__products = products_list if products_list else []
-        Category.product_count = len(products_list) if products_list else 0
+        self.__products = products if products else []
+        Category.product_count = len(products) if products else 0
         Category.category_count += 1
 
     def __str__(self):
-        return f'{self.name}, количество продуктов: {cat.counting_total_quantity} шт.'
+        total_quantity = 0
+        for product in self.__products:
+            total_quantity += product.quantity
+        return f'{self.name}, количество продуктов: {total_quantity} шт.'
 
     @property
     def products(self):
+        """Отображение продукта в заданном формате"""
         products_str = ''
         for product in self.__products:
             products_str += f'{str(product)}\n'
@@ -36,14 +40,6 @@ class Category:
     @property
     def products_in_list(self):
         return self.__products
-
-    @property
-    def counting_total_quantity(self):
-        total_quantity = 0
-        for product in self.__products:
-            total_quantity += product.quantity
-        return total_quantity
-
 
 # if __name__ == '__main__':
 #     prod1 = Product("Samsung Galaxy C23 Ultra",
@@ -63,10 +59,20 @@ class Category:
 #         31000.0,
 #         14)
 #
+#     prod4 = Product("55\" QLED 4K",
+#                     "Фоновая подсветка",
+#                     123000.0,
+#                     7)
+#
 #     cat = Category(
 #         "Смартфоны",
 #         "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для удобства жизни",
 #         [prod1, prod2, prod3])
 #
-#     print(cat.products)
+#     cat2 = Category("Телевизоры",
+#                     "Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником",
+#                     [prod4])
+#
+#     # print(cat.products)
 #     print(cat)
+#     print(cat2)

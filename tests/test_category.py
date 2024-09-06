@@ -30,4 +30,4 @@ def test_category_add_product(data_for_categories, new_product):
 
 
 def test_category_str(data_for_counters_categories):
-    assert str(data_for_counters_categories) == 'Телевизоры, количество продуктов: 7 шт.'
+    assert str(data_for_counters_categories) == 'Смартфоны, количество продуктов: 22 шт.'
