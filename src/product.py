@@ -16,7 +16,10 @@ class Product:
         return f'{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.'
 
     def __add__(self, other):
-        return self.__price * self.quantity + other.__price * other.quantity
+        if type(self) == type(other):
+            return self.__price * self.quantity + other.__price * other.quantity
+        else:
+            raise TypeError
 
     @classmethod
     def new_product(cls, product_params: dict):
@@ -40,7 +43,6 @@ class Product:
                     break
                 elif answer.lower() == 'n':
                     break
-
 
 # if __name__ == '__main__':
 #     prod1 = Product.new_product({
