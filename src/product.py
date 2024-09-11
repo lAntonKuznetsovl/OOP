@@ -23,14 +23,17 @@ class Product:
 
     @classmethod
     def new_product(cls, product_params: dict):
+        """Метод добавляющий новый продукт в список"""
         return cls(**product_params)
 
     @property
     def price(self):
+        """Метод волзвращающий цену продукта"""
         return self.__price
 
     @price.setter
     def price(self, new_price):
+        """Метод меняющий цену продукта в зависимости от условия"""
         if new_price <= 0:
             print('Цена не должна быть нулевая или отрицательная')
         elif new_price > self.__price:
