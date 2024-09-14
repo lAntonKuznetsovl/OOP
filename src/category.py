@@ -19,6 +19,7 @@ class Category:
         Category.category_count += 1
 
     def __str__(self):
+        """Метод отображающий строку в заданном формате"""
         total_quantity = 0
         for product in self.__products:
             total_quantity += product.quantity
@@ -34,12 +35,16 @@ class Category:
 
     def add_product(self, product: dict):
         """Метод добавления нового продукта в список"""
-        self.__products.append(product)
-        Category.product_count += 1
+        if isinstance(product, Product):
+            self.__products.append(product)
+            Category.product_count += 1
+        else:
+            raise TypeError
 
     @property
     def products_in_list(self):
         return self.__products
+
 
 # if __name__ == '__main__':
 #     prod1 = Product("Samsung Galaxy C23 Ultra",
@@ -73,6 +78,18 @@ class Category:
 #                     "Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником",
 #                     [prod4])
 #
-#     # print(cat.products)
-#     print(cat)
-#     print(cat2)
+#     print(cat.products)
+#     print(Category.product_count)
+#     print(Category.category_count)
+#     # print(cat)
+#     # print(cat2)
+#     prod5 = Product.new_product({
+#         "name": "Samsung Galaxy M33",
+#         "description": "128GB, Синий цвет, 1500MP камера",
+#         "price": 110000.0,
+#         "quantity": 15,
+#     })
+#     cat.add_product(prod5)
+#     print(cat.products)
+#     print(Category.product_count)
+#     print(Category.category_count)

@@ -1,4 +1,8 @@
-class Product:
+from src.base_product import BaseProduct
+from src.print_mixin import PrintMixin
+
+
+class Product(BaseProduct, PrintMixin):
     """Класс предоставляющий информацию о продукте"""
 
     name: str
@@ -11,23 +15,30 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self):
         return f'{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.'
 
     def __add__(self, other):
-        return self.__price * self.quantity + other.__price * other.quantity
+        if type(self) == type(other):
+            return self.__price * self.quantity + other.__price * other.quantity
+        else:
+            raise TypeError
 
     @classmethod
     def new_product(cls, product_params: dict):
+        """Метод добавляющий новый продукт в список"""
         return cls(**product_params)
 
     @property
     def price(self):
+        """Метод волзвращающий цену продукта"""
         return self.__price
 
     @price.setter
     def price(self, new_price):
+        """Метод меняющий цену продукта в зависимости от условия"""
         if new_price <= 0:
             print('Цена не должна быть нулевая или отрицательная')
         elif new_price > self.__price:
@@ -49,19 +60,22 @@ class Product:
 #         "price": 180000.0,
 #         "quantity": 5
 #     })
-#     prod2 = Product(
-#         "Iphone 15",
-#         "512GB, Gray space",
-#         210000.0,
-#         8)
+# prod2 = Product(
+#     "Iphone 15",
+#     "512GB, Gray space",
+#     210000.0,
+#     8)
 #
-#     prod3 = Product(
-#         "Xiaomi Redmi Note 11",
-#         "1024GB, Синий",
-#         31000.0,
-#         14)
-#
-#     print(prod1)
-#     print(prod2)
-#     print(prod3)
-#     print(prod1 + prod2)
+# prod3 = Product(
+#     "Xiaomi Redmi Note 11",
+#     "1024GB, Синий",
+#     31000.0,
+#     14)
+
+# print(prod1.name)
+# print(prod1.description)
+# print(prod1.price)
+# print(prod1.quantity)
+# print(prod2)
+# print(prod3)
+# print(prod1 + prod2)

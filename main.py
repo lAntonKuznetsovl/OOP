@@ -3,7 +3,8 @@ import json
 from config import PATH_TO_JSON
 from src.category import Category
 from src.product import Product
-
+from src.smartphone import Smartphone
+from src.lawn_grass import LawnGrass
 
 def reading_json(path_to_file: str) -> dict:
     """Функция долучения данных из json файла"""
@@ -24,8 +25,3 @@ def create_object_from_json(data_from_json: dict):
         for element in category['products']:
             product_objects.append(Product(**element))
     return categories_objects, product_objects
-
-
-if __name__ == "__main__":
-    result = create_object_from_json(data)
-    print(result)
