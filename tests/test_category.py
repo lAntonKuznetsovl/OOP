@@ -35,4 +35,11 @@ def test_category_add_product(data_for_categories, new_product, data_for_err):
 
 
 def test_category_str(data_for_counters_categories):
+    """Тест вывода строки заданного формата"""
     assert str(data_for_counters_categories) == 'Смартфоны, количество продуктов: 22 шт.'
+
+
+def test_category_with_empty_product_list(category_with_empty_product_list, data_for_counters_categories):
+    """Проверка подсчёта средней стоимости товаров в категории"""
+    assert category_with_empty_product_list.avg_price() == 0
+    assert data_for_counters_categories.avg_price() == 120500

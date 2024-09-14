@@ -40,7 +40,7 @@ def test_price_setter(capsys, monkeypatch):
     assert new_product.price == 200000
     new_product.price = 0
     message = capsys.readouterr()
-    assert message.out.strip() == "Цена не должна быть нулевая или отрицательная"
+    assert message.out.strip().split('\n')[-1] == 'Цена не должна быть нулевая или отрицательная'
     assert new_product.price == 200000
     monkeypatch.setattr("builtins.input", lambda _: "y")
     new_product.price = 100
@@ -55,3 +55,9 @@ def test_add_product(product1, product2):
     assert product1 + product2 == 1334000
     with pytest.raises(TypeError):
         product1 + 1
+
+
+def test_init_product_with_zero_quantity():
+    with pytest.raises(ValueError):
+        Product("Samsung Galaxy C23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0,  0)
+

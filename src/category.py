@@ -6,7 +6,7 @@ class Category:
 
     name: str
     description: str
-    products_list: list
+    products: list
     category_count = 0
     product_count = 0
 
@@ -45,6 +45,16 @@ class Category:
     def products_in_list(self):
         return self.__products
 
+    def avg_price(self):
+        total_price = 0
+        for product in self.__products:
+            total_price += product.price
+        try:
+            avg_price = round(total_price / len(self.__products), 2)
+            return avg_price
+        except ZeroDivisionError:
+            return 0
+
 
 # if __name__ == '__main__':
 #     prod1 = Product("Samsung Galaxy C23 Ultra",
@@ -63,11 +73,11 @@ class Category:
 #         "1024GB, Синий",
 #         31000.0,
 #         14)
-#
-#     prod4 = Product("55\" QLED 4K",
-#                     "Фоновая подсветка",
-#                     123000.0,
-#                     7)
+#     #
+#     # prod4 = Product("55\" QLED 4K",
+#     #                 "Фоновая подсветка",
+#     #                 123000.0,
+#     #                 7)
 #
 #     cat = Category(
 #         "Смартфоны",
@@ -78,7 +88,8 @@ class Category:
 #                     "Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником",
 #                     [prod4])
 #
-#     print(cat.products)
+    # print(cat.products)
+    # print(cat.avg_price())
 #     print(Category.product_count)
 #     print(Category.category_count)
 #     # print(cat)
