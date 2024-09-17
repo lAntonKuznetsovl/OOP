@@ -96,3 +96,11 @@ def lawngrass():
         "germination_period": "2 month",
         "color": "Зелёный"
     })
+
+
+@pytest.fixture
+def category_with_empty_product_list():
+    """Тест Category с пустым списком продуктов"""
+    return Category("Смартфоны",
+                    "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для " "удобства жизни",
+                    [])
