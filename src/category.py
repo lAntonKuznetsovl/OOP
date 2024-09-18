@@ -1,5 +1,5 @@
 from src.product import Product
-from base_category import BaseCategory
+from src.base_category import BaseCategory
 from src.custom_error import ZeroQuantityError
 
 
@@ -60,6 +60,7 @@ class Category(BaseCategory):
             return 0
 
     def counting_total_products_price(self):
+        """Подсчёт общей стоимости товаров в категории"""
         total_price = 0
         for product in self.__products:
             total_price += product.price * product.quantity

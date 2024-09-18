@@ -16,7 +16,7 @@ class Order(BaseCategory):
         return f'Ваш заказ: {self.product_name_in_order} в количестве  {self.quantity_of_goods_sold} шт. Цена заказа: {self.quantity_of_goods_sold * self.price_per_piece} руб.'
 
     def counting_total_products_price(self):
-        """Подсчёт общей суммы продажи"""
+        """Подсчёт общей суммы заказа"""
         return self.quantity_of_goods_sold * self.price_per_piece
 
 
