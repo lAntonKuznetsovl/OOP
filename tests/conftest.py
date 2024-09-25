@@ -5,6 +5,7 @@ from src.product import Product
 from src.product_iteration import ProductIteration
 from src.smartphone import Smartphone
 from src.lawn_grass import LawnGrass
+from src.order import Order
 
 
 @pytest.fixture
@@ -104,3 +105,9 @@ def category_with_empty_product_list():
     return Category("Смартфоны",
                     "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для " "удобства жизни",
                     [])
+
+
+@pytest.fixture
+def order_init():
+    """Инициализация заказа"""
+    return Order("Samsung Galaxy C23 Ultra", 2, 180000)

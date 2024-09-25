@@ -1,5 +1,6 @@
 from src.base_product import BaseProduct
 from src.print_mixin import PrintMixin
+from src.custom_error import ZeroQuantityError
 
 
 class Product(BaseProduct, PrintMixin):
@@ -15,7 +16,7 @@ class Product(BaseProduct, PrintMixin):
         self.description = description
         self.__price = price
         if quantity == 0:
-            raise ValueError("Товар с нулевым количеством не может быть добавлен")
+            raise ZeroQuantityError("Товар с нулевым количеством не может быть добавлен")
         else:
             self.quantity = quantity
         super().__init__()
@@ -54,7 +55,6 @@ class Product(BaseProduct, PrintMixin):
                     break
                 elif answer.lower() == 'n':
                     break
-
 
 # if __name__ == '__main__':
 #     prod1 = Product.new_product({
